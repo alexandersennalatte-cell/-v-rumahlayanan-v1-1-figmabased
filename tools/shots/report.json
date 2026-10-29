@@ -1,0 +1,290 @@
+{
+  "desktop": {
+    "metrics": {
+      "docH": 6925,
+      "scrollW": 1440,
+      "clientW": 1440,
+      "sections": [
+        {
+          "tag": "header",
+          "id": "top",
+          "top": 38,
+          "h": 87
+        },
+        {
+          "tag": "section",
+          "id": "beranda",
+          "top": 125,
+          "h": 740
+        },
+        {
+          "tag": "section",
+          "id": "perjalanan",
+          "top": 865,
+          "h": 432
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1321,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1321,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1321,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1848,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1848,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1848,
+          "h": 86
+        },
+        {
+          "tag": "section",
+          "id": "kesehatan",
+          "top": 2588,
+          "h": 665
+        },
+        {
+          "tag": "section",
+          "id": "direktori",
+          "top": 3253,
+          "h": 1647
+        },
+        {
+          "tag": "section",
+          "id": "panduan",
+          "top": 4900,
+          "h": 354
+        },
+        {
+          "tag": "section",
+          "id": "pengaduan",
+          "top": 5254,
+          "h": 736
+        },
+        {
+          "tag": "footer",
+          "id": "footer",
+          "top": 6570,
+          "h": 354
+        }
+      ],
+      "overflow": [],
+      "fontLoaded": "loaded"
+    },
+    "logs": []
+  },
+  "tablet": {
+    "metrics": {
+      "docH": 9484,
+      "scrollW": 820,
+      "clientW": 820,
+      "sections": [
+        {
+          "tag": "header",
+          "id": "top",
+          "top": 38,
+          "h": 73
+        },
+        {
+          "tag": "section",
+          "id": "beranda",
+          "top": 111,
+          "h": 1081
+        },
+        {
+          "tag": "section",
+          "id": "perjalanan",
+          "top": 1192,
+          "h": 536
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1748,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 1748,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2293,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2293,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2882,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2882,
+          "h": 86
+        },
+        {
+          "tag": "section",
+          "id": "kesehatan",
+          "top": 3607,
+          "h": 985
+        },
+        {
+          "tag": "section",
+          "id": "direktori",
+          "top": 4592,
+          "h": 2187
+        },
+        {
+          "tag": "section",
+          "id": "panduan",
+          "top": 6780,
+          "h": 426
+        },
+        {
+          "tag": "section",
+          "id": "pengaduan",
+          "top": 7206,
+          "h": 977
+        },
+        {
+          "tag": "footer",
+          "id": "footer",
+          "top": 8949,
+          "h": 535
+        }
+      ],
+      "overflow": [],
+      "fontLoaded": "loaded"
+    },
+    "logs": []
+  },
+  "mobile": {
+    "metrics": {
+      "docH": 14301,
+      "scrollW": 390,
+      "clientW": 390,
+      "sections": [
+        {
+          "tag": "header",
+          "id": "top",
+          "top": 38,
+          "h": 73
+        },
+        {
+          "tag": "section",
+          "id": "beranda",
+          "top": 111,
+          "h": 1147
+        },
+        {
+          "tag": "section",
+          "id": "perjalanan",
+          "top": 1258,
+          "h": 735
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2012,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 2554,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 3117,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 3658,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 4243,
+          "h": 86
+        },
+        {
+          "tag": "header",
+          "id": "stage__head",
+          "top": 4805,
+          "h": 86
+        },
+        {
+          "tag": "section",
+          "id": "kesehatan",
+          "top": 5503,
+          "h": 1391
+        },
+        {
+          "tag": "section",
+          "id": "direktori",
+          "top": 6894,
+          "h": 3767
+        },
+        {
+          "tag": "section",
+          "id": "panduan",
+          "top": 10661,
+          "h": 743
+        },
+        {
+          "tag": "section",
+          "id": "pengaduan",
+          "top": 11404,
+          "h": 1260
+        },
+        {
+          "tag": "footer",
+          "id": "footer",
+          "top": 13594,
+          "h": 707
+        }
+      ],
+      "overflow": [],
+      "fontLoaded": "loaded"
+    },
+    "logs": []
+  }
+}

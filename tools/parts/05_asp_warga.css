@@ -1,0 +1,165 @@
+
+/* ---------- 13. ASPIRATIONS ---------- */
+.asp{padding:80px 0 76px}
+.asp__title{margin-bottom:44px}
+.asp__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);
+  gap:28px;
+}
+.acard{
+  position:relative;
+  padding:38px 40px 34px;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+.acard--blue{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 18px 44px rgba(6,14,50,.2);
+}
+.acard--sage{background:var(--sage);color:var(--ink)}
+.acard__eyebrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.73rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+}
+.acard__eyebrow--sage{color:var(--link)}
+.acard__eyebrow--sage svg{width:20px;height:20px;flex:none;stroke-width:1.7}
+.acard__ico--tr{
+  position:absolute;
+  top:32px;right:36px;
+  width:28px;height:28px;
+  color:rgba(255,255,255,.85);
+}
+.acard__ico--tr svg{width:28px;height:28px;stroke-width:1.5}
+.acard__ico{flex:none;width:28px;height:28px}
+.acard__title{
+  font-family:var(--font-serif);
+  font-size:clamp(1.9rem,2.8vw,2.5rem);
+  line-height:1.15;
+  margin:22px 0 16px;
+  color:#fff;
+}
+.acard__title--dark{color:var(--green);margin-top:26px}
+.acard__desc{
+  max-width:560px;
+  font-size:.96rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.82);
+}
+.acard__desc--dark{color:var(--ink);margin-top:18px}
+.acard__contact{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-top:30px;
+  padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.acard__label{font-size:.78rem;color:rgba(255,255,255,.72)}
+.acard__phone{
+  font-size:1.72rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  margin-top:4px;
+}
+.acard__links{display:flex;flex-wrap:wrap;gap:26px;margin-top:24px}
+.acard__links a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:.86rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:#fff;
+  transition:opacity .2s var(--ease);
+}
+.acard__links a:hover{opacity:.72}
+.acard__links svg{width:14px;height:14px}
+.acard__wa{
+  display:inline-block;
+  margin-top:22px;
+  font-family:var(--font-serif);
+  font-size:1.28rem;
+  color:var(--green);
+  transition:opacity .2s var(--ease);
+}
+.acard__wa:hover{opacity:.75}
+.acard__link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:16px;
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--link);
+}
+.acard__link svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.acard__link:hover svg{transform:translate(3px,-3px)}
+.acard__fine{
+  margin-top:26px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  font-size:.82rem;
+  color:var(--muted);
+}
+
+/* ---------- 14. WARGA ---------- */
+.warga{padding:64px 0 56px}
+.warga__inner{
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:60px;
+  align-items:start;
+  margin-bottom:64px;
+}
+.warga__lead{
+  margin-top:20px;
+  max-width:420px;
+  font-size:.96rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.wlist{display:flex;flex-direction:column}
+.wlist li{border-bottom:1px solid var(--line)}
+.wlist li:first-child{border-top:1px solid var(--line)}
+.wlist li > a{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:22px 4px;
+  transition:padding-left .25s var(--ease);
+}
+.wlist li > a:hover{padding-left:12px}
+.wlist__ico{
+  flex:none;
+  width:40px;height:40px;
+  display:grid;place-items:center;
+  color:var(--link);
+}
+.wlist__ico svg{width:24px;height:24px;stroke-width:1.6}
+.wlist__main{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.wlist__title{font-size:1.02rem;font-weight:500;color:var(--ink)}
+.wlist__desc{font-size:.86rem;color:var(--muted)}
+.wlist__arrow{flex:none;width:17px;height:17px;color:var(--link);transition:transform .25s var(--ease)}
+.wlist li > a:hover .wlist__arrow{transform:translate(3px,-3px)}
+.srcline{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:22px 24px;
+  border-radius:var(--radius);
+  background:var(--sage);
+  font-size:.88rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+.srcline svg{flex:none;width:19px;height:19px;color:var(--green);margin-top:1px}

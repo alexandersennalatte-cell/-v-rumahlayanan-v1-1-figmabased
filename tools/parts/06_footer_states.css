@@ -1,0 +1,82 @@
+
+/* ---------- 15. FOOTER ---------- */
+.footer{
+  background:var(--green);
+  color:rgba(255,255,255,.76);
+  padding:64px 0 0;
+}
+.footer__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr) minmax(0,.95fr);
+  gap:48px;
+  padding-bottom:48px;
+}
+.footer__brand .logo{margin-bottom:18px}
+.footer__org{
+  font-size:.9rem;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:8px;
+}
+.footer__desc{
+  max-width:340px;
+  font-size:.88rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.66);
+}
+.footer__label{
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
+}
+.footer__col li + li{margin-top:12px}
+.footer__col a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:.9rem;
+  color:rgba(255,255,255,.78);
+  transition:color .2s var(--ease);
+}
+.footer__col a svg{width:13px;height:13px;opacity:.7}
+.footer__col a:hover{color:#fff}
+.footer__bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:22px 24px;
+  border-top:1px solid rgba(255,255,255,.14);
+  font-size:.83rem;
+  color:rgba(255,255,255,.6);
+}
+.footer__tag{font-family:var(--font-serif);font-size:1rem;color:rgba(255,255,255,.82)}
+
+/* ---------- 16. SEARCH STATES / HIGHLIGHT ---------- */
+mark.hl{
+  background:var(--gold-soft);
+  color:var(--green);
+  padding:0 2px;
+  border-radius:3px;
+  font-weight:600;
+}
+.is-dimmed{opacity:.34}
+.is-hidden{display:none}
+.dcard.is-match,.hcard.is-match{
+  box-shadow:0 0 0 2px var(--gold),var(--shadow-lg);
+}
+.scard.is-match{
+  box-shadow:0 0 0 2px var(--gold),var(--shadow);
+}
+
+/* ---------- 17. REVEAL ANIMATION ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+}
+.reveal.is-visible{opacity:1;transform:none}

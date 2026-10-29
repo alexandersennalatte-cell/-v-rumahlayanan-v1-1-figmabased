@@ -1,0 +1,15 @@
+    38 +   87  header.top
+   125 +  740  section.beranda
+   865 +  432  section.perjalanan
+  1321 +   86  header.stage__head
+  1321 +   86  header.stage__head
+  1321 +   86  header.stage__head
+  1848 +   86  header.stage__head
+  1848 +   86  header.stage__head
+  1848 +   86  header.stage__head
+  2588 +  665  section.kesehatan
+  3253 + 1647  section.direktori
+  4900 +  354  section.panduan
+  5254 +  736  section.pengaduan
+  6570 +  354  footer.footer
+docH 6925 scrollW 1440

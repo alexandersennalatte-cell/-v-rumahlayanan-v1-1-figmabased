@@ -1,0 +1,165 @@
+
+/* ---------- 9. STAGE GRID ---------- */
+.stagegrid{padding:24px 0 76px}
+.stagegrid__cols{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:44px 40px;
+}
+.stage{scroll-margin-top:110px}
+.stage__head{
+  position:relative;
+  padding-bottom:20px;
+  margin-bottom:22px;
+  border-bottom:1px solid var(--line);
+}
+.stage__num{
+  position:absolute;
+  top:6px;left:0;
+  font-family:var(--font-serif);
+  font-size:1.05rem;
+  color:var(--gold);
+}
+.stage__title{
+  font-family:var(--font-serif);
+  font-size:1.72rem;
+  color:var(--green);
+  padding-left:32px;
+  line-height:1.25;
+}
+.stage__desc{
+  margin-top:8px;
+  padding-left:32px;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.stage__list{display:flex;flex-direction:column;gap:12px}
+.stage__note{
+  margin-top:14px;
+  font-size:.82rem;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+/* service card */
+.scard{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px;
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.scard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.scard__main{display:flex;flex-direction:column;gap:5px;min-width:0}
+.scard__title{
+  font-size:1.02rem;
+  font-weight:500;
+  color:var(--link);
+  line-height:1.35;
+}
+.scard__desc{font-size:.9rem;color:var(--ink);line-height:1.5}
+.scard__org{margin-top:3px;font-size:.8rem;color:var(--muted-2)}
+.scard__arrow{
+  flex:none;
+  width:17px;height:17px;
+  margin-top:4px;
+  color:var(--link);
+  transition:transform .25s var(--ease);
+}
+.scard:hover .scard__arrow{transform:translate(3px,-3px)}
+
+/* info bar */
+.infobar{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-top:52px;
+  padding:20px 24px;
+  background:var(--sage);
+  border-radius:var(--radius);
+  font-size:.9rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+.infobar__ico{flex:none;width:20px;height:20px;color:var(--green);margin-top:2px}
+
+/* ---------- 10. HEALTH ---------- */
+.health{
+  background:var(--sage);
+  padding:76px 0 84px;
+}
+.health__head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:40px;
+  align-items:end;
+  margin-bottom:44px;
+}
+.health__intro{font-size:.98rem;color:var(--muted);padding-bottom:8px}
+.health__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:28px;
+}
+.hcard{
+  display:flex;
+  background:#fff;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(25,60,51,.07);
+}
+.hcard__media{flex:none;width:234px;position:relative}
+.hcard__media img{width:100%;height:100%;object-fit:cover}
+.hcard__body{flex:1;min-width:0;padding:34px 34px 30px}
+.hcard--plain{align-items:stretch}
+.hcard__title{
+  font-family:var(--font-serif);
+  font-size:1.72rem;
+  color:var(--green);
+  line-height:1.25;
+}
+.hcard__desc{margin-top:10px;font-size:.92rem;color:var(--muted)}
+.hlist{margin-top:22px;display:flex;flex-direction:column;gap:2px}
+.hlist li > a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+  transition:color .22s var(--ease);
+}
+.hlist li:last-child > a{border-bottom:0}
+.hlist li > a span{flex:1;font-size:.98rem;font-weight:600;color:var(--link)}
+.hlist li > a svg{
+  flex:none;width:16px;height:16px;color:var(--link);
+  transition:transform .25s var(--ease);
+}
+.hlist li > a:hover svg{transform:translate(3px,-3px)}
+
+.hlist--icon{gap:0}
+.hlist--icon li{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+}
+.hlist--icon li:last-child{border-bottom:0}
+.hlist__ico{
+  flex:none;
+  width:42px;height:42px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  background:var(--sage);
+  color:var(--green);
+}
+.hlist__ico svg{width:21px;height:21px;stroke-width:1.6}
+.hlist__main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.hlist__title{font-size:.98rem;font-weight:600;color:var(--ink)}
+.hlist__desc{font-size:.85rem;color:var(--muted)}
+.hlist__arrow{flex:none;width:16px;height:16px;color:var(--link);transition:transform .25s var(--ease)}
+.hlist--icon li:hover .hlist__arrow{transform:translate(3px,-3px)}

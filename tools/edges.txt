@@ -1,0 +1,12 @@
+MOCK header row                    K:\Newfolder\mock1.png
+   content x: 80 .. 1359   (width 1280)
+CUR header row                     K:\Newfolder\tools\shots\desktop.png
+   content x: 104 .. 1335   (width 1232)
+MOCK hero title rows               K:\Newfolder\mock1.png
+   content x: 80 .. 1348   (width 1269)
+CUR hero title rows                K:\Newfolder\tools\shots\desktop.png
+   content x: 104 .. 1281   (width 1178)
+MOCK logo row                      K:\Newfolder\mock1.png
+   content x: 80 .. 1359   (width 1280)
+CUR logo row                       K:\Newfolder\tools\shots\desktop.png
+   content x: 104 .. 1335   (width 1232)

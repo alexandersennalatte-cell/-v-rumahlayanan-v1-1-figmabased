@@ -1,0 +1,360 @@
+   1| /* ============================================================
+   2|    RUMAH LAYANAN KABUPATEN LAMONGAN
+   3|    main.js — interaksi portal
+   4|    ============================================================ */
+   5| (function () {
+   6|   'use strict';
+   7| 
+   8|   var $  = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+   9|   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+  10| 
+  11|   /* ---------------------------------------------------------
+  12|      1. MOBILE NAVIGATION
+  13|      --------------------------------------------------------- */
+  14|   var navToggle = $('#navToggle');
+  15|   var nav       = $('#nav');
+  16| 
+  17|   function closeNav() {
+  18|     if (!nav || !navToggle) return;
+  19|     nav.classList.remove('is-open');
+  20|     navToggle.setAttribute('aria-expanded', 'false');
+  21|     navToggle.setAttribute('aria-label', 'Buka menu');
+  22|   }
+  23| 
+  24|   if (navToggle && nav) {
+  25|     navToggle.addEventListener('click', function () {
+  26|       var open = nav.classList.toggle('is-open');
+  27|       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  28|       navToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  29|     });
+  30| 
+  31|     // Tutup menu saat link di dalam diklik
+  32|     $$('.nav a', nav).forEach(function (link) {
+  33|       link.addEventListener('click', closeNav);
+  34|     });
+  35| 
+  36|     // Tutup menu bila klik di luar
+  37|     document.addEventListener('click', function (e) {
+  38|       if (!nav.classList.contains('is-open')) return;
+  39|       if (nav.contains(e.target) || navToggle.contains(e.target)) return;
+  40|       closeNav();
+  41|     });
+  42| 
+  43|     // Tutup menu saat Escape ditekan
+  44|     document.addEventListener('keydown', function (e) {
+  45|       if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+  46|         closeNav();
+  47|         navToggle.focus();
+  48|       }
+  49|     });
+  50| 
+  51|     // Reset state saat kembali ke lebar desktop
+  52|     window.addEventListener('resize', function () {
+  53|       if (window.innerWidth > 860) closeNav();
+  54|     });
+  55|   }
+  56| 
+  57|   /* ---------------------------------------------------------
+  58|      2. STICKY HEADER SHADOW
+  59|      --------------------------------------------------------- */
+  60|   var header = $('.header');
+  61| 
+  62|   function onScroll() {
+  63|     if (!header) return;
+  64|     header.classList.toggle('is-stuck', window.scrollY > 8);
+  65|   }
+  66| 
+  67|   window.addEventListener('scroll', onScroll, { passive: true });
+  68|   onScroll();
+  69| 
+  70|   /* ---------------------------------------------------------
+  71|      3. ACTIVE NAV LINK (scroll spy)
+  72|      --------------------------------------------------------- */
+  73|   var sections = ['#beranda', '#perjalanan', '#direktori', '#panduan', '#pengaduan']
+  74|     .map(function (id) { return document.getElementById(id.slice(1)); })
+  75|     .filter(Boolean);
+  76|   var navLinks = $$('.nav__link');
+  77| 
+  78|   function spy() {
+  79|     var pos = window.scrollY + 140;
+  80|     var current = sections[0];
+  81| 
+  82|     sections.forEach(function (sec) {
+  83|       if (sec.offsetTop <= pos) current = sec;
+  84|     });
+  85| 
+  86|     navLinks.forEach(function (link) {
+  87|       var href = link.getAttribute('href');
+  88|       link.classList.toggle('is-active', href === '#' + current.id);
+  89|     });
+  90|   }
+  91| 
+  92|   if ('IntersectionObserver' in window) {
+  93|     var spyObs = new IntersectionObserver(spy, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+  94|     sections.forEach(function (s) { spyObs.observe(s); });
+  95|   } else {
+  96|     window.addEventListener('scroll', spy, { passive: true });
+  97|   }
+  98|   spy();
+  99| })();
+ 100| 
+ 101| 
+ 102|   /* ---------------------------------------------------------
+ 103|      4. SEARCH & FILTERING
+ 104|      --------------------------------------------------------- */
+ 105|   var form   = $('#searchForm');
+ 106|   var input  = $('#searchInput');
+ 107|   var dirSec = $('#direktori');
+ 108| 
+ 109|   var stageCards  = $$('.scard');
+ 110|   var dirEntries  = $$('.dlist li');
+ 111|   var dirCards    = $$('.dcard');
+ 112|   var healthRows  = $$('.hlist li');
+ 113|   var searchables = stageCards.concat(dirEntries).concat(healthRows);
+ 114| 
+ 115|   function normalize(str) {
+ 116|     return (str || '').toLowerCase().trim();
+ 117|   }
+ 118| 
+ 119|   function clearHighlights() {
+ 120|     $$('mark.hl').forEach(function (m) {
+ 121|       var parent = m.parentNode;
+ 122|       parent.replaceChild(document.createTextNode(m.textContent), m);
+ 123|       parent.normalize();
+ 124|     });
+ 125|     searchables.forEach(function (el) { el.classList.remove('is-dimmed', 'is-match'); });
+ 126|     dirCards.forEach(function (c) { c.classList.remove('is-hidden', 'is-match'); });
+ 127|     $$('.hcard').forEach(function (c) { c.classList.remove('is-match'); });
+ 128|   }
+ 129| 
+ 130|   function highlight(root, term) {
+ 131|     if (!term) return;
+ 132|     var escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ 133|     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+ 134|       acceptNode: function (node) {
+ 135|         if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+ 136|         var p = node.parentNode.nodeName;
+ 137|         if (p === 'MARK' || p === 'SCRIPT' || p === 'STYLE') return NodeFilter.FILTER_REJECT;
+ 138|         return node.nodeValue.toLowerCase().indexOf(term) !== -1
+ 139|           ? NodeFilter.FILTER_ACCEPT
+ 140|           : NodeFilter.FILTER_REJECT;
+ 141|       }
+ 142|     });
+ 143|     var nodes = [];
+ 144|     var n;
+ 145|     while ((n = walker.nextNode())) nodes.push(n);
+ 146| 
+ 147|     nodes.forEach(function (node) {
+ 148|       var parts = node.nodeValue.split(new RegExp('(' + escaped + ')', 'ig'));
+ 149|       var frag = document.createDocumentFragment();
+ 150|       parts.forEach(function (part) {
+ 151|         if (part.toLowerCase() === term) {
+ 152|           var m = document.createElement('mark');
+ 153|           m.className = 'hl';
+ 154|           m.textContent = part;
+ 155|           frag.appendChild(m);
+ 156|         } else {
+ 157|           frag.appendChild(document.createTextNode(part));
+ 158|         }
+ 159|       });
+ 160|       node.parentNode.replaceChild(frag, node);
+ 161|     });
+ 162|   }
+ 163| 
+ 164|   function runSearch(rawTerm) {
+ 165|     var term = normalize(rawTerm);
+ 166|     clearHighlights();
+ 167| 
+ 168|     if (term.length < 2) return 0;
+ 169| 
+ 170|     var matches = [];
+ 171| 
+ 172|     stageCards.forEach(function (card) {
+ 173|       var hit = normalize(card.textContent).indexOf(term) !== -1;
+ 174|       card.classList.toggle('is-match', hit);
+ 175|       card.classList.toggle('is-dimmed', !hit);
+ 176|       if (hit) matches.push(card);
+ 177|     });
+ 178| 
+ 179|     dirEntries.forEach(function (li) {
+ 180|       var hit = normalize(li.textContent).indexOf(term) !== -1;
+ 181|       li.classList.toggle('is-match', hit);
+ 182|       li.classList.toggle('is-dimmed', !hit);
+ 183|       if (hit) {
+ 184|         matches.push(li);
+ 185|         var card = li.closest('.dcard');
+ 186|         if (card) card.classList.add('is-match');
+ 187|       }
+ 188|     });
+ 189| 
+ 190|     healthRows.forEach(function (li) {
+ 191|       var hit = normalize(li.textContent).indexOf(term) !== -1;
+ 192|       li.classList.toggle('is-match', hit);
+ 193|       li.classList.toggle('is-dimmed', !hit);
+ 194|       if (hit) {
+ 195|         matches.push(li);
+ 196|         var card = li.closest('.hcard');
+ 197|         if (card) card.classList.add('is-match');
+ 198|       }
+ 199|     });
+ 200| 
+ 201|     dirCards.forEach(function (card) {
+ 202|       var has = $$('.is-match', card).length > 0;
+ 203|       card.classList.toggle('is-hidden', !has);
+ 204|     });
+ 205| 
+ 206|     matches.slice(0, 60).forEach(function (el) { highlight(el, term); });
+ 207| 
+ 208|     return matches.length;
+ 209|   }
+ 210| 
+ 211|   function announce(count) {
+ 212|     var live = $('#searchLive');
+ 213|     if (!live) return;
+ 214|     live.textContent = count > 0
+ 215|       ? count + ' layanan ditemukan untuk pencarian ini.'
+ 216|       : 'Tidak ada layanan yang cocok.';
+ 217|   }
+ 218| 
+ 219|   if (form && input) {
+ 220|     form.addEventListener('submit', function (e) {
+ 221|       e.preventDefault();
+ 222|       var count = runSearch(input.value);
+ 223|       if (dirSec) {
+ 224|         var y = dirSec.getBoundingClientRect().top + window.scrollY - 90;
+ 225|         window.scrollTo({ top: y, behavior: 'smooth' });
+ 226|       }
+ 227|       announce(count);
+ 228|     });
+ 229| 
+ 230|     var debounce;
+ 231|     input.addEventListener('input', function () {
+ 232|       clearTimeout(debounce);
+ 233|       debounce = setTimeout(function () {
+ 234|         var q = input.value.trim();
+ 235|         if (q.length >= 2) {
+ 236|           var count = runSearch(q);
+ 237|           announce(count);
+ 238|         } else {
+ 239| 
+ 240|   /* ---------------------------------------------------------
+ 241|      5. TIMELINE — click & keyboard navigation
+ 242|      --------------------------------------------------------- */
+ 243|   var timelineItems = $$('.timeline__item');
+ 244| 
+ 245|   function selectStage(item) {
+ 246|     timelineItems.forEach(function (i) { i.classList.remove('is-active'); });
+ 247|     item.classList.add('is-active');
+ 248| 
+ 249|     var targetId = item.getAttribute('data-target');
+ 250|     var target = targetId ? document.getElementById(targetId) : null;
+ 251|     if (!target) return;
+ 252| 
+ 253|     var y = target.getBoundingClientRect().top + window.scrollY - 110;
+ 254|     window.scrollTo({ top: y, behavior: 'smooth' });
+ 255|   }
+ 256| 
+ 257|   timelineItems.forEach(function (item) {
+ 258|     item.setAttribute('tabindex', '0');
+ 259|     item.setAttribute('role', 'button');
+ 260| 
+ 261|     item.addEventListener('click', function () { selectStage(item); });
+ 262| 
+ 263|     item.addEventListener('keydown', function (e) {
+ 264|       if (e.key === 'Enter' || e.key === ' ') {
+ 265|         e.preventDefault();
+ 266|         selectStage(item);
+ 267|       }
+ 268|     });
+ 269|   });
+ 270| 
+ 271|   /* ---------------------------------------------------------
+ 272|      6. REVEAL ON SCROLL
+ 273|      --------------------------------------------------------- */
+ 274|   var revealTargets = $$(
+ 275|     '.stage, .hcard, .dcard, .acard, .step, .wlist li, .timeline__item, .infobar'
+ 276|   );
+ 277| 
+ 278|   if ('IntersectionObserver' in window) {
+ 279|     var revealObs = new IntersectionObserver(function (entries) {
+ 280|       entries.forEach(function (entry) {
+ 281|         if (entry.isIntersecting) {
+ 282|           entry.target.classList.add('is-visible');
+ 283|           revealObs.unobserve(entry.target);
+ 284|         }
+ 285|       });
+ 286|     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+ 287| 
+ 288|     revealTargets.forEach(function (el, i) {
+ 289|       el.classList.add('reveal');
+ 290|       el.style.transitionDelay = (i % 6) * 55 + 'ms';
+ 291|       revealObs.observe(el);
+ 292|     });
+ 293|   } else {
+ 294|     revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+ 295|   }
+ 296| 
+ 297|   /* ---------------------------------------------------------
+ 298|      7. SMOOTH SCROLL OFFSET FOR ANCHORS
+ 299|      --------------------------------------------------------- */
+ 300|   document.addEventListener('click', function (e) {
+ 301|     var link = e.target.closest('a[href^="#"]');
+ 302|     if (!link) return;
+ 303| 
+ 304|     var href = link.getAttribute('href');
+ 305|     if (!href || href === '#') return;
+ 306| 
+ 307|     var target = document.getElementById(href.slice(1));
+ 308|     if (!target) return;
+ 309| 
+ 310|     e.preventDefault();
+ 311|     var y = target.getBoundingClientRect().top + window.scrollY - 88;
+ 312|     window.scrollTo({ top: y, behavior: 'smooth' });
+ 313|     history.replaceState(null, '', href);
+ 314|   });
+ 315| 
+ 316|   /* ---------------------------------------------------------
+ 317|      8. PREVENT PLACEHOLDER LINKS FROM JUMPING
+ 318|      --------------------------------------------------------- */
+ 319|   $$('a[href="#"]').forEach(function (a) {
+ 320|     a.addEventListener('click', function (e) {
+ 321|       e.preventDefault();
+ 322|     });
+ 323|   });
+ 324| 
+ 325|   /* ---------------------------------------------------------
+ 326|      9. CURRENT YEAR IN FOOTER
+ 327|      --------------------------------------------------------- */
+ 328|   $$('[data-year]').forEach(function (el) {
+ 329|     el.textContent = new Date().getFullYear();
+ 330|   });
+ 331| })();
+ 332| 
+ 333|           clearHighlights();
+ 334|           announce(0);
+ 335|         }
+ 336|       }, 220);
+ 337|     });
+ 338| 
+ 339|     $$('.chip').forEach(function (chip) {
+ 340|       chip.addEventListener('click', function () {
+ 341|         input.value = chip.getAttribute('data-q') || '';
+ 342|         input.focus();
+ 343|         var count = runSearch(input.value);
+ 344|         if (dirSec) {
+ 345|           var y = dirSec.getBoundingClientRect().top + window.scrollY - 90;
+ 346|           window.scrollTo({ top: y, behavior: 'smooth' });
+ 347|         }
+ 348|         announce(count);
+ 349|       });
+ 350|     });
+ 351| 
+ 352|     input.addEventListener('keydown', function (e) {
+ 353|       if (e.key === 'Escape') {
+ 354|         input.value = '';
+ 355|         clearHighlights();
+ 356|         announce(0);
+ 357|       }
+ 358|     });
+ 359|   }
+ 360| 

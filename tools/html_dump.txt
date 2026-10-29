@@ -1,0 +1,726 @@
+   1| <!DOCTYPE html>
+   2| <html lang="id">
+   3| <head>
+   4| <meta charset="UTF-8">
+   5| <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   6| <title>Rumah Layanan Kabupaten Lamongan — Hadir di setiap tahap kehidupan</title>
+   7| <meta name="description" content="Pintu informasi layanan untuk setiap tahap kehidupan dan kebutuhan masyarakat Lamongan.">
+   8| <link rel="preconnect" href="https://fonts.googleapis.com">
+   9| <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  10| <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  11| <link rel="stylesheet" href="css/style.css">
+  12| <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  13| </head>
+  14| <body>
+  15| 
+  16| <!-- ============ TOP BAR ============ -->
+  17| <div class="topbar">
+  18|   <div class="container topbar__inner">
+  19|     <p class="topbar__brand">
+  20|       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+  21|       Pemerintah Kabupaten Lamongan
+  22|     </p>
+  23|     <p class="topbar__note">Informasi layanan dari portal dan perangkat daerah Lamongan</p>
+  24|   </div>
+  25| </div>
+  26| 
+  27| <!-- ============ HEADER ============ -->
+  28| <header class="header" id="top">
+  29|   <div class="container header__inner">
+  30|     <a class="logo" href="#top">
+  31|       <span class="logo__mark">
+  32|         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6.5L20 11"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+  33|       </span>
+  34|       <span class="logo__text">
+  35|         <span class="logo__title">Rumah Layanan</span>
+  36|         <span class="logo__sub">Kabupaten Lamongan</span>
+  37|       </span>
+  38|     </a>
+  39| 
+  40|     <nav class="nav" id="nav" aria-label="Navigasi utama">
+  41|       <a href="#beranda" class="nav__link is-active">Beranda</a>
+  42|       <a href="#perjalanan" class="nav__link">Perjalanan hidup</a>
+  43|       <a href="#direktori" class="nav__link">Direktori layanan</a>
+  44|       <a href="#panduan" class="nav__link">Panduan</a>
+  45|       <a href="#pengaduan" class="nav__cta">
+  46|         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg>
+  47|         Pengaduan
+  48|       </a>
+  49|     </nav>
+  50| 
+  51|     <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
+  52|       <span></span><span></span><span></span>
+  53|     </button>
+  54|   </div>
+  55| </header>
+  56| 
+  57| <!-- ============ HERO ============ -->
+  58| <section class="hero" id="beranda">
+  59|   <div class="container hero__inner">
+  60|     <div class="hero__copy">
+  61|       <p class="eyebrow eyebrow--light">
+  62|         <span class="eyebrow__rule"></span>Satu pintu, beragam kebutuhan
+  63|       </p>
+  64|       <h1 class="hero__title">Hadir di setiap tahap<br>kehidupan.</h1>
+  65|       <p class="hero__lead">Temukan layanan Kabupaten Lamongan dalam satu pintu. Dari menyambut kelahiran, menata masa depan, hingga mendampingi keluarga di masa tua kehidupan.</p>
+  66| 
+  67|       <form class="search" id="searchForm" role="search">
+  68|         <span class="search__icon">
+  69|           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+  70|         </span>
+  71|         <input type="search" id="searchInput" class="search__input" placeholder="Cari layanan, kebutuhan, atau instansi..." aria-label="Cari layanan" autocomplete="off">
+  72|         <button type="submit" class="search__btn">Cari</button>
+  73|       </form>
+  74|       <p class="sr-only" id="searchLive" role="status" aria-live="polite"></p>
+  75| 
+  76|       <div class="search__hints">
+  77|         <span>Contoh pencarian:</span>
+  78|         <button type="button" class="chip" data-q="Adminduk">Adminduk</button>
+  79|         <button type="button" class="chip" data-q="Pendidikan">Pendidikan</button>
+  80|         <button type="button" class="chip" data-q="Perizinan">Perizinan</button>
+  81|       </div>
+  82| 
+  83|       <div class="hero__actions">
+  84|         <a href="#perjalanan" class="btn btn--light">
+  85|           Jelajahi perjalanan hidup
+  86|           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>
+  87|         </a>
+  88|         <a href="#direktori" class="btn btn--outline">
+  89|           Buka direktori
+  90|           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+  91|         </a>
+  92|       </div>
+  93|     </div>
+  94| 
+  95|     <div class="hero__media">
+  96|       <div class="hero__photo">
+  97|         <img src="images/hero-family.png" alt="KeluargaLamongan bersama di rumah">
+  98|         <div class="hero__card">
+  99|           <span class="hero__card-ico">
+ 100|             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13c-3.5 0-6-2-6-4.5S8.5 4 12 4s6 2 6 4.5S15.5 13 12 13z"/><path d="M12 21c0-3 2-4.5 4.5-4.5S21 18 21 19.5"/></svg>
+ 101|           </span>
+ 102|           <div>
+ 103|             <p class="hero__card-title">Bertumbuh bersama Lamongan</p>
+ 104|             <p class="hero__card-sub">Layanan publik, dekat dengan kehidupan Anda.</p>
+ 105|           </div>
+ 106|         </div>
+ 107|       </div>
+ 108|     </div>
+ 109|   </div>
+ 110| </section>
+ 111| 
+ 112| 
+ 113| <!-- ============ PERJALANAN HIDUP ============ -->
+ 114| <section class="stages" id="perjalanan">
+ 115|   <div class="container">
+ 116|     <div class="stages__head">
+ 117|       <div>
+ 118|         <p class="eyebrow"><span class="eyebrow__rule"></span>Layanan sepanjang kehidupan</p>
+ 119|         <h2 class="h2">Setiap fase punya cerita.<br>Setiap kebutuhan punya pintu.</h2>
+ 120|       </div>
+ 121|       <p class="stages__intro">Mulai dari tahap yang dekat dengan Anda. Temukan layanan dan program perangkat daerah yang relevan untuk diri sendiri maupun keluarga.</p>
+ 122|     </div>
+ 123| 
+ 124|     <ol class="timeline" id="timeline">
+ 125|       <li class="timeline__item is-active" data-target="stage-kelahiran">
+ 126|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
+ 127|         <span class="timeline__label">Kelahiran</span>
+ 128|       </li>
+ 129|       <li class="timeline__item" data-target="stage-pendidikan">
+ 130|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg></span>
+ 131|         <span class="timeline__label">Anak &amp; Pendidikan</span>
+ 132|       </li>
+ 133|       <li class="timeline__item" data-target="stage-bekerja">
+ 134|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span>
+ 135|         <span class="timeline__label">Bekerja &amp; Berusaha</span>
+ 136|       </li>
+ 137|       <li class="timeline__item" data-target="stage-pernikahan">
+ 138|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9z"/></svg></span>
+ 139|         <span class="timeline__label">Pernikahan &amp; Keluarga</span>
+ 140|       </li>
+ 141|       <li class="timeline__item" data-target="stage-lansia">
+ 142|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.4"/><path d="M9 21v-4H6l2-6h8l2 6h-3v4z"/></svg></span>
+ 143|         <span class="timeline__label">Lansia</span>
+ 144|       </li>
+ 145|       <li class="timeline__item" data-target="stage-akhir">
+ 146|         <span class="timeline__dot"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="6" cy="13" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="13" r="2"/><path d="M8 20h8"/></svg></span>
+ 147|         <span class="timeline__label">Akhir Hayat</span>
+ 148|       </li>
+ 149|     </ol>
+ 150|   </div>
+ 151| </section>
+ 152| 
+ 153| 
+ 154| <!-- ============ GRID TAHAP KEHIDUPAN ============ -->
+ 155| <section class="stagegrid">
+ 156|   <div class="container">
+ 157|     <div class="stagegrid__cols">
+ 158| 
+ 159|       <!-- 01 Kelahiran -->
+ 160|       <div class="stage" id="stage-kelahiran">
+ 161|         <header class="stage__head">
+ 162|           <span class="stage__num">01</span>
+ 163|           <h3 class="stage__title">Kelahiran</h3>
+ 164|           <p class="stage__desc">Menyambut awal kehidupan.</p>
+ 165|         </header>
+ 166|         <div class="stage__list">
+ 167|           <a href="#" class="scard">
+ 168|             <span class="scard__main">
+ 169|               <span class="scard__title">BABLAS</span>
+ 170|               <span class="scard__desc">Bayi Lahir Berkas Langsung Tuntas.</span>
+ 171|               <span class="scard__org">RSUD Ngimbang</span>
+ 172|             </span>
+ 173|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 174|           </a>
+ 175|           <a href="#" class="scard">
+ 176|             <span class="scard__main">
+ 177|               <span class="scard__title">JAMILA</span>
+ 178|               <span class="scard__desc">Penjaringan Ibu Hamil Aktif Berkala.</span>
+ 179|               <span class="scard__org">Puskesmas Kembangbahu</span>
+ 180|             </span>
+ 181|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 182|           </a>
+ 183|           <a href="#" class="scard">
+ 184|             <span class="scard__main">
+ 185|               <span class="scard__title">Adminduk Online</span>
+ 186|               <span class="scard__desc">Akses layanan administrasi kependudukan.</span>
+ 187|               <span class="scard__org">Disdukcapil Lamongan</span>
+ 188|             </span>
+ 189|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 190|           </a>
+ 191|         </div>
+ 192|       </div>
+ 193| 
+ 194|       <!-- 02 Anak & Pendidikan -->
+ 195|       <div class="stage" id="stage-pendidikan">
+ 196|         <header class="stage__head">
+ 197|           <span class="stage__num">02</span>
+ 198|           <h3 class="stage__title">Anak &amp; Pendidikan</h3>
+ 199|           <p class="stage__desc">Membuka ruang untuk tumbuh dan belajar.</p>
+ 200|         </header>
+ 201|         <div class="stage__list">
+ 202|           <a href="#" class="scard">
+ 203|             <span class="scard__main">
+ 204|               <span class="scard__title">Layanan Pendidikan</span>
+ 205|               <span class="scard__desc">Pinta informasi layanan pendidikan.</span>
+ 206|               <span class="scard__org">LANDIK · Dinas Pendidikan</span>
+ 207|             </span>
+ 208|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 209|           </a>
+ 210|           <a href="#" class="scard">
+ 211|             <span class="scard__main">
+ 212|               <span class="scard__title">JEMBATAN EMAS</span>
+ 213|               <span class="scard__desc">Transisi anak PAUD menuju sekolah dasar.</span>
+ 214|               <span class="scard__org">Dinas Pendidikan</span>
+ 215|             </span>
+ 216|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 217|           </a>
+ 218|           <a href="#" class="scard">
+ 219|             <span class="scard__main">
+ 220|               <span class="scard__title">AKSI BIRU</span>
+ 221|               <span class="scard__desc">ATS Kembali Sekolah Melalui Bakti Insan Guru.</span>
+ 222|               <span class="scard__org">Dinas Pendidikan</span>
+ 223|             </span>
+ 224|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 225|           </a>
+ 226|         </div>
+ 227|       </div>
+ 228| 
+ 229|       <!-- 03 Bekerja & Berusaha -->
+ 230|       <div class="stage" id="stage-bekerja">
+ 231|         <header class="stage__head">
+ 232|           <span class="stage__num">03</span>
+ 233|           <h3 class="stage__title">Bekerja &amp; Berusaha</h3>
+ 234|           <p class="stage__desc">Menata pekerjaan, mengembangkan usaha.</p>
+ 235|         </header>
+ 236|         <div class="stage__list">
+ 237|           <a href="#" class="scard">
+ 238|             <span class="scard__main">
+ 239|               <span class="scard__title">Layanan Ketenagakerjaan</span>
+ 240|               <span class="scard__desc">Akses layanan melalui aplikasi Workdin.</span>
+ 241|               <span class="scard__org">Ketenagakerjaan · Workdin</span>
+ 242|             </span>
+ 243|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 244|           </a>
+ 245|           <a href="#" class="scard">
+ 246|             <span class="scard__main">
+ 247|               <span class="scard__title">Perizinan</span>
+ 248|               <span class="scard__desc">Informasi perizinan melalui perangkat daerah.</span>
+ 249|               <span class="scard__org">DPMPTSP Lamongan</span>
+ 250|             </span>
+ 251|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 252|           </a>
+ 253|           <a href="#" class="scard">
+ 254|             <span class="scard__main">
+ 255|               <span class="scard__title">Layanan Industri</span>
+ 256|               <span class="scard__desc">Sistem informasi layanan industri.</span>
+ 257|               <span class="scard__org">SILLA Lamongan</span>
+ 258|             </span>
+ 259|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 260|           </a>
+ 261|         </div>
+ 262|       </div>
+ 263| 
+ 264|       <!-- 04 Pernikahan & Keluarga -->
+ 265|       <div class="stage" id="stage-pernikahan">
+ 266|         <header class="stage__head">
+ 267|           <span class="stage__num">04</span>
+ 268|           <h3 class="stage__title">Pernikahan &amp; Keluarga</h3>
+ 269|           <p class="stage__desc">Membangun keluarga, saling melindungi.</p>
+ 270|         </header>
+ 271|         <div class="stage__list">
+ 272|           <a href="#" class="scard">
+ 273|             <span class="scard__main">
+ 274|               <span class="scard__title">MANTANKU</span>
+ 275|               <span class="scard__desc">Manten Anyar Untuk Telu Dokumen Administrasi Kependudukan.</span>
+ 276|               <span class="scard__org">Disdukcapil Lamongan</span>
+ 277|             </span>
+ 278|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 279|           </a>
+ 280|           <a href="#" class="scard">
+ 281|             <span class="scard__main">
+ 282|               <span class="scard__title">INKOMMPak_GA</span>
+ 283|               <span class="scard__desc">Informasi dan Komunikasi Pencegahan Perkawinan Anak dan PUSPA.</span>
+ 284|               <span class="scard__org">DINPPPA Lamongan</span>
+ 285|             </span>
+ 286|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 287|           </a>
+ 288|           <a href="#" class="scard">
+ 289|             <span class="scard__main">
+ 290|               <span class="scard__title">SPIKER PERAK</span>
+ 291|               <span class="scard__desc">Pengaduan kekerasan terhadap perempuan dan anak.</span>
+ 292|               <span class="scard__org">Perlindungan perempuan &amp; anak</span>
+ 293|             </span>
+ 294|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 295|           </a>
+ 296|         </div>
+ 297|       </div>
+ 298| 
+ 299|       <!-- 05 Lansia -->
+ 300|       <div class="stage" id="stage-lansia">
+ 301|         <header class="stage__head">
+ 302|           <span class="stage__num">05</span>
+ 303|           <h3 class="stage__title">Lansia</h3>
+ 304|           <p class="stage__desc">Menjaga kesehatan dan kesejahteraan.</p>
+ 305|         </header>
+ 306|         <div class="stage__list">
+ 307|           <a href="#" class="scard">
+ 308|             <span class="scard__main">
+ 309|               <span class="scard__title">PANDAWA LANSIA</span>
+ 310|               <span class="scard__desc">Pelayanan Terpadu dan Pengawalan Kesejahteraan Lansia.</span>
+ 311|               <span class="scard__org">Puskesmas Sukorame</span>
+ 312|             </span>
+ 313|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 314|           </a>
+ 315|           <a href="#" class="scard">
+ 316|             <span class="scard__main">
+ 317|               <span class="scard__title">SEHATI LANSIA</span>
+ 318|               <span class="scard__desc">Kesehatan melalui Posbindu Lansia.</span>
+ 319|               <span class="scard__org">Puskesmas Moropeleng</span>
+ 320|             </span>
+ 321|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 322|           </a>
+ 323|           <a href="#" class="scard">
+ 324|             <span class="scard__main">
+ 325|               <span class="scard__title">PODO SIMPATI</span>
+ 326|               <span class="scard__desc">Puskesmas Modo Siap Jemput Pasien Lansia dan Balita.</span>
+ 327|               <span class="scard__org">Puskesmas Modo</span>
+ 328|             </span>
+ 329|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 330|           </a>
+ 331|         </div>
+ 332|       </div>
+ 333| 
+ 334|       <!-- 06 Akhir Hayat -->
+ 335|       <div class="stage" id="stage-akhir">
+ 336|         <header class="stage__head">
+ 337|           <span class="stage__num">06</span>
+ 338|           <h3 class="stage__title">Akhir Hayat</h3>
+ 339|           <p class="stage__desc">Pendampingan administrasi di masa kehilangan.</p>
+ 340|         </header>
+ 341|         <div class="stage__list">
+ 342|           <a href="#" class="scard">
+ 343|             <span class="scard__main">
+ 344|               <span class="scard__title">Pelayanan Akta Kematian</span>
+ 345|               <span class="scard__desc">Informasi layanan dan FAQ administrasi kematian.</span>
+ 346|               <span class="scard__org">Disdukcapil Lamongan</span>
+ 347|             </span>
+ 348|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 349|           </a>
+ 350|           <a href="#" class="scard">
+ 351|             <span class="scard__main">
+ 352|               <span class="scard__title">KAMAR 2.1</span>
+ 353|               <span class="scard__desc">Kartu Makam Tlogolanyar 2×1.</span>
+ 354|               <span class="scard__org">Lokak · Kelurahan Tlogolanyar</span>
+ 355|             </span>
+ 356|             <svg class="scard__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 357|           </a>
+ 358|         </div>
+ 359|         <p class="stage__note">KAMAR 2.1 merupakan layanan lokal Kelurahan Tlogolanyar, bukan layanan pemakaman seluruh kabupaten.</p>
+ 360|       </div>
+ 361| 
+ 362|     </div>
+ 363| 
+ 364|     <div class="infobar">
+ 365|       <svg class="infobar__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+ 366|       <p>Program puskesmas dan keluarga mengikuti wilayah serta ketersediaan instansi penyelenggara. Baca informasi resmi sebelum mengakses layanan.</p>
+ 367|     </div>
+ 368|   </div>
+ 369| </section>
+ 370| 
+ 371| 
+ 372| <!-- ============ KESEHATAN ============ -->
+ 373| <section class="health" id="kesehatan">
+ 374|   <div class="container">
+ 375|     <div class="health__head">
+ 376|       <div>
+ 377|         <p class="eyebrow"><span class="eyebrow__rule"></span>Dekat dengan kesehatan</p>
+ 378|         <h2 class="h2">Kebutuhan harian, tetap terhubung.</h2>
+ 379|       </div>
+ 380|       <p class="health__intro">Kesehatan, air bersih, dan kebutuhan rumah tangga.</p>
+ 381|     </div>
+ 382| 
+ 383|     <div class="health__grid">
+ 384|       <article class="hcard">
+ 385|         <div class="hcard__media">
+ 386|           <img src="images/health-care.png" alt="Tenaga kesehatan melayani pasien">
+ 387|         </div>
+ 388|         <div class="hcard__body">
+ 389|           <h3 class="hcard__title">Akses layanan kesehatan</h3>
+ 390|           <p class="hcard__desc">Informasi layanan rumah sakit daerah.</p>
+ 391|           <ul class="hlist">
+ 392|             <li><a href="#"><span>RSUD dr. Soegiri</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 393|             <li><a href="#"><span>RSUD Karang Kembang</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 394|             <li><a href="#"><span>RSUD Ngimbang</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 395|           </ul>
+ 396|         </div>
+ 397|       </article>
+ 398| 
+ 399|       <article class="hcard hcard--plain">
+ 400|         <div class="hcard__body">
+ 401|           <h3 class="hcard__title">Untuk rumah dan sehari-hari</h3>
+ 402|           <ul class="hlist hlist--icon">
+ 403|             <li>
+ 404|               <span class="hlist__ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+ 405|               <span class="hlist__main">
+ 406|                 <span class="hlist__title">Layanan PDAM</span>
+ 407|                 <span class="hlist__desc">Akses kanal layanan air bersih</span>
+ 408|               </span>
+ 409|               <svg class="hlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 410|             </li>
+ 411|             <li>
+ 412|               <span class="hlist__ico"><svg viewBox="0 0 24 24"><path d="M3 9h18l-1.5 11h-15z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></span>
+ 413|               <span class="hlist__main">
+ 414|                 <span class="hlist__title">Layanan Informasi Harga Bahan pokok</span>
+ 415|                 <span class="hlist__desc">Pantau informasi melalui SIPULDABAPOK</span>
+ 416|               </span>
+ 417|               <svg class="hlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 418|             </li>
+ 419|             <li>
+ 420|               <span class="hlist__ico"><svg viewBox="0 0 24 24"><path d="M4 10h16v9H4z"/><path d="M9 19v-5h6v5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+ 421|               <span class="hlist__main">
+ 422|                 <span class="hlist__title">POL — Pasar Online Lamongan</span>
+ 423|                 <span class="hlist__desc">Layanan pasar melalui PD Pasar</span>
+ 424|               </span>
+ 425|               <svg class="hlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 426|               <svg class="hlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 427|             </li>
+ 428|           </ul>
+ 429|         </div>
+ 430|       </article>
+ 431|     </div>
+ 432|   </div>
+ 433| </section>
+ 434| 
+ 435| 
+ 436| <!-- ============ DIREKTORI LAYANAN ============ -->
+ 437| <section class="dir" id="direktori">
+ 438|   <div class="container">
+ 439|     <div class="dir__head">
+ 440|       <div>
+ 441|         <p class="eyebrow"><span class="eyebrow__rule"></span>Temukan layanan anda</p>
+ 442|         <h2 class="h2">Direktori layanan</h2>
+ 443|         <p class="dir__lead">Seluruh 31 entri utama pada portal Rumah Layanan, dikelompokkan agar mudah ditemukan. Pilih layanan untuk mengenal kanal atau instansi penyelenggara.</p>
+ 444|       </div>
+ 445|       <span class="badge">
+ 446|         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+ 447|         31 entri portal
+ 448|       </span>
+ 449|     </div>
+ 450| 
+ 451|     <div class="dir__grid">
+ 452| 
+ 453|       <!-- Kependudukan & pemerintahan -->
+ 454|       <section class="dcard">
+ 455|         <h3 class="dcard__head">
+ 456|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><circle cx="9" cy="10" r="2.2"/><path d="M5 17c0-2.5 2-4 4-4s4 1.5 4 4"/><path d="M15 9h4"/><path d="M15 13h4"/><path d="M15 17h3"/></svg></span>
+ 457|           Kependudukan &amp; pemerintahan
+ 458|         </h3>
+ 459|         <ul class="dlist">
+ 460|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Adminduk Online</span><span class="dlist__sub">Disdukcapil - kanal WhatsApp</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 461|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Administrasi Desa</span><span class="dlist__sub">Rujukan informasi; portal Rumah Layanan</span></span><span class="dlist__info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg></span></a></li>
+ 462|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Pendidikan</span><span class="dlist__sub">landik.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 463|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Tata Pemerintahan</span><span class="dlist__sub">sibactam.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 464|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Mall Pelayanan Publik</span><span class="dlist__sub">mppdigital.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 465|         </ul>
+ 466|       </section>
+ 467| 
+ 468|       <!-- Informasi & pengetahuan -->
+ 469|       <section class="dcard">
+ 470|         <h3 class="dcard__head">
+ 471|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><path d="M4 5h7v14H4z"/><path d="M13 5h7v14h-7z"/><path d="M11 5v14"/></svg></span>
+ 472|           Informasi &amp; pengetahuan
+ 473|         </h3>
+ 474|         <ul class="dlist">
+ 475|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Jaringan Dokumen Hukum</span><span class="dlist__sub">JDIH - jdih.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 476|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Informasi Publik</span><span class="dlist__sub">ppid.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 477|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Publikasi Jurnal Ilmiah</span><span class="dlist__sub">e-jurnal.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 478|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Satu Data Lamongan</span><span class="dlist__sub">satudata.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 479|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Nomor Telepon Penting</span><span class="dlist__sub">lamongankab.go.id/artikel/47</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 480|         </ul>
+ 481|       </section>
+ 482| 
+ 483|       <!-- Usaha, kerja & pembangunan -->
+ 484|       <section class="dcard">
+ 485|         <h3 class="dcard__head">
+ 486|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span>
+ 487|           Usaha, kerja &amp; pembangunan
+ 488|         </h3>
+ 489|         <ul class="dlist">
+ 490|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Ketenagakerjaan</span><span class="dlist__sub">Aplikasi Workdin - Google Play</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 491|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Perizinan</span><span class="dlist__sub">dpmptsp.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 492|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Industri</span><span class="dlist__sub">silla.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 493|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Pajak Daerah</span><span class="dlist__sub">sinopa.bapenda-lamongan.com</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 494|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Pemasaran Ternak</span><span class="dlist__sub">sisapi.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 495|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Pengadaan Secara Elektronik</span><span class="dlist__sub">spse.inaproc.id/lamongankab</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 496|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Tata Ruang</span><span class="dlist__sub">skala.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 497|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">POL — Pasar Online Lamongan</span><span class="dlist__sub">pdpasar.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 498|         </ul>
+ 499|       </section>
+ 500| 
+ 501|       <!-- Kesehatan -->
+ 502|       <section class="dcard">
+ 503|         <h3 class="dcard__head">
+ 504|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9z"/></svg></span>
+ 505|           Kesehatan
+ 506|         </h3>
+ 507|         <ul class="dlist">
+ 508|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">RSUD dr. Soegiri</span><span class="dlist__sub">rsud-soegiri.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 509|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">RSUD Karang Kembang</span><span class="dlist__sub">rsud-karangkembang.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 510|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">RSUD Ngimbang</span><span class="dlist__sub">rsud-ngimbang.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 511|         </ul>
+ 512|       </section>
+ 513| 
+ 514|       <!-- Kesehatan & lingkungan -->
+ 515|       <section class="dcard">
+ 516|         <h3 class="dcard__head">
+ 517|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+ 518|           Kesehatan &amp; lingkungan
+ 519|         </h3>
+ 520|         <ul class="dlist">
+ 521|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan PDAM</span><span class="dlist__sub">Kanal WhatsApp PDAM</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 522|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan Informasi Harga Bahan Pokok</span><span class="dlist__sub">sipuldabapok.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 523|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Layanan-Perhubungan</span><span class="dlist__sub">dishub.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 524|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Sistem Informasi Layanan Lingkungan</span><span class="dlist__sub">silla.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 525|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Lamongan Tourism</span><span class="dlist__sub">Portal informasi wisata - lamongantourism.com</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 526|         </ul>
+ 527|       </section>
+ 528| 
+ 529|       <!-- Pengaduan & partisipasi -->
+ 530|       <section class="dcard">
+ 531|         <h3 class="dcard__head">
+ 532|           <span class="dcard__ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg></span>
+ 533|           Pengaduan &amp; partisipasi
+ 534|         </h3>
+ 535|         <ul class="dlist">
+ 536|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">LAPOR PAK YES!</span><span class="dlist__sub">WhatsApp · 0811-3021-708</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 537|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">SP4N-LAPOR!</span><span class="dlist__sub">lapor.go.id - Kabupaten Lamongan</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 538|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">LAPOR WBS — Whistle Blowing System</span><span class="dlist__sub">lapowbs.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 539|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">SPIKER PERAK</span><span class="dlist__sub">Pengaduan kekerasan terhadap perempuan dan anak</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 540|           <li><a href="#"><span class="dlist__main"><span class="dlist__title">Survei Kepuasan Masyarakat</span><span class="dlist__sub">senyumla.lamongankab.go.id</span></span><svg class="dlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 541|         </ul>
+ 542|       </section>
+ 543| 
+ 544|     </div>
+ 545| 
+ 546|     <p class="dir__note">
+ 547|       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 548|       Kanal layanan dapat berupa situs instansi, aplikasi, atau WhatsApp. Layanan Administrasi Desa ditampilkan sebagai rujukan informasi portal.
+ 549|     </p>
+ 550|   </div>
+ 551| </section>
+ 552| 
+ 553| 
+ 554| <!-- ============ PANDUAN SINGKAT ============ -->
+ 555| <section class="guide" id="panduan">
+ 556|   <div class="container guide__inner">
+ 557|     <div class="guide__head">
+ 558|       <p class="eyebrow eyebrow--gold"><span class="eyebrow__rule"></span>Panduan singkat</p>
+ 559|       <h2 class="h2">Mulai dari<br>kebutuhan Anda.</h2>
+ 560|     </div>
+ 561| 
+ 562|     <ol class="steps">
+ 563|       <li class="step">
+ 564|         <span class="step__num">01</span>
+ 565|         <span class="step__ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+ 566|         <h3 class="step__title">Temukan layanan</h3>
+ 567|         <p class="step__desc">Gunakan pencarian, perjalanan hidup, atau kelompok pada direktori.</p>
+ 568|       </li>
+ 569|       <li class="step">
+ 570|         <span class="step__num">02</span>
+ 571|         <span class="step__ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/><path d="M8 17h8"/></svg></span>
+ 572|         <h3 class="step__title">Buka kanal instansi</h3>
+ 573|         <p class="step__desc">Kenali perangkat daerah dan akses situs, aplikasi, atau kontak resmi.</p>
+ 574|       </li>
+ 575|       <li class="step">
+ 576|         <span class="step__num">03</span>
+ 577|         <span class="step__ico"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M9 11l2 2 4-4"/></svg></span>
+ 578|         <h3 class="step__title">Ikuti informasi resmi</h3>
+ 579|         <p class="step__desc">Baca persyaratan dan alur layanan terbaru dari instansi terkait.</p>
+ 580|       </li>
+ 581|     </ol>
+ 582|   </div>
+ 583| </section>
+ 584| 
+ 585| 
+ 586| <!-- ============ ASPIRASI ============ -->
+ 587| <section class="asp" id="pengaduan">
+ 588|   <div class="container">
+ 589|     <p class="eyebrow"><span class="eyebrow__rule"></span>Suara anda berarti</p>
+ 590|     <h2 class="h2 asp__title">Sampaikan aspirasi. Temukan dukungan.</h2>
+ 591| 
+ 592|     <div class="asp__grid">
+ 593|       <article class="acard acard--blue">
+ 594|         <p class="acard__eyebrow">Pengaduan &amp; JEJAK aspiration masyarakat</p>
+ 595|         <span class="acard__ico acard__ico--tr"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg></span>
+ 596|         <h3 class="acard__title">LAPOR PAK YES!</h3>
+ 597|         <p class="acard__desc">Sampaikan pengaduan atau aspirasi terkait layanan Kabupaten Lamongan melalui kanal WhatsApp yang tercantum di portal.</p>
+ 598| 
+ 599|         <div class="acard__contact">
+ 600|           <div>
+ 601|             <p class="acard__label">WhatsApp LAPOR PAK YES!</p>
+ 602|             <p class="acard__phone">0811-3021-708</p>
+ 603|           </div>
+ 604|           <a href="#" class="btn btn--cream">Buka WhatsApp <svg viewBox="0 0 24 24"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></a>
+ 605|         </div>
+ 606| 
+ 607|         <div class="acard__links">
+ 608|           <a href="#">SP4N-LAPOR! <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
+ 609|           <a href="#">LAPOR WBS <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
+ 610|         </div>
+ 611|       </article>
+ 612| 
+ 613|       <article class="acard acard--sage">
+ 614|         <p class="acard__eyebrow acard__eyebrow--sage">
+ 615|           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+ 616|           Perlindungan perempuan &amp; anak
+ 617|         </p>
+ 618|         <h3 class="acard__title acard__title--dark">SPIKER PERAK</h3>
+ 619|         <p class="acard__desc acard__desc--dark">Sistem Pengaduan Online Kekerasan terhadap Perempuan dan Anak. Akses kanal khusus untuk menyampaikan pengaduan.</p>
+ 620|         <a href="#" class="acard__wa">WhatsApp 0812-7677-0778</a>
+ 621|         <a href="#" class="acard__link">Akses SPIKER PERAK <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
+ 622|         <p class="acard__fine">Sampaikan informasi seperlunya dan ikuti petunjuk pada kanal resmi.</p>
+ 623|       </article>
+ 624|     </div>
+ 625|   </div>
+ 626| </section>
+ 627| 
+ 628| 
+ 629| <!-- ============ TERBUKA UNTUK WARGA ============ -->
+ 630| <section class="warga">
+ 631|   <div class="container warga__inner">
+ 632|     <div class="warga__head">
+ 633|       <p class="eyebrow"><span class="eyebrow__rule"></span>Terbuka untuk warga</p>
+ 634|       <h2 class="h2">Informasi yang membantu<br>Anda mengambil langkah.</h2>
+ 635|       <p class="warga__lead">Kenali informasi publik, temukan kontak penting, dan berikan masukan tentang layanan.</p>
+ 636|     </div>
+ 637| 
+ 638|     <ul class="wlist">
+ 639|       <li>
+ 640|         <a href="#">
+ 641|           <span class="wlist__ico"><svg viewBox="0 0 24 24"><path d="M4 5h7v14H4z"/><path d="M13 5h7v14h-7z"/><path d="M11 5v14"/></svg></span>
+ 642|           <span class="wlist__main">
+ 643|             <span class="wlist__title">Layanan Informasi Publik</span>
+ 644|             <span class="wlist__desc">Akses informasi melalui PPID Kabupaten Lamongan.</span>
+ 645|           </span>
+ 646|           <svg class="wlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 647|         </a>
+ 648|       </li>
+ 649|       <li>
+ 650|         <a href="#">
+ 651|           <span class="wlist__ico"><svg viewBox="0 0 24 24"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 4.2 2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+ 652|           <span class="wlist__main">
+ 653|             <span class="wlist__title">Nomor Telepon Penting</span>
+ 654|             <span class="wlist__desc">Rujukan kontak pada situs Pemerintah Kabupaten Lamongan.</span>
+ 655|           </span>
+ 656|           <svg class="wlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 657|         </a>
+ 658|       </li>
+ 659|       <li>
+ 660|         <a href="#">
+ 661|           <span class="wlist__ico"><svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
+ 662|           <span class="wlist__main">
+ 663|             <span class="wlist__title">Survei Kepuasan Masyarakat</span>
+ 664|             <span class="wlist__desc">Sampaikan penilaian layanan melalui SENYUMLA.</span>
+ 665|           </span>
+ 666|           <svg class="wlist__arrow" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+ 667|         </a>
+ 668|       </li>
+ 669|     </ul>
+ 670|   </div>
+ 671| 
+ 672|   <div class="container">
+ 673|     <p class="srcline">
+ 674|       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+ 675|       Sumber informasi: lamongankab.go.id dan situs resmi perangkat daerah. Persyaratan dan ketersediaan layanan mengikuti informasi instansi terkait.
+ 676|     </p>
+ 677|   </div>
+ 678| </section>
+ 679| 
+ 680| 
+ 681| <!-- ============ FOOTER ============ -->
+ 682| <footer class="footer">
+ 683|   <div class="container footer__grid">
+ 684|     <div class="footer__brand">
+ 685|       <a class="logo logo--light" href="#top">
+ 686|         <span class="logo__mark">
+ 687|           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6.5L20 11"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+ 688|         </span>
+ 689|         <span class="logo__text">
+ 690|           <span class="logo__title">Rumah Layanan</span>
+ 691|         </span>
+ 692|       </a>
+ 693|       <p class="footer__org">Pemerintah Kabupaten Lamongan</p>
+ 694|       <p class="footer__desc">Pintu informasi layanan untuk setiap tahap kehidupan dan kebutuhan masyarakat Lamongan.</p>
+ 695|     </div>
+ 696| 
+ 697|     <nav class="footer__col" aria-label="Jelajahi portal">
+ 698|       <h3 class="footer__label">Jelajahi portal</h3>
+ 699|       <ul>
+ 700|         <li><a href="#perjalanan">Perjalanan hidup</a></li>
+ 701|         <li><a href="#direktori">Direktori layanan</a></li>
+ 702|         <li><a href="#panduan">Panduan layanan</a></li>
+ 703|         <li><a href="#pengaduan">Pengaduan masyarakat</a></li>
+ 704|       </ul>
+ 705|     </nav>
+ 706| 
+ 707|     <nav class="footer__col" aria-label="Rujukan resmi">
+ 708|       <h3 class="footer__label">Rujukan resmi</h3>
+ 709|       <ul>
+ 710|         <li><a href="#">lamongankab.go.id <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 711|         <li><a href="#">PPID Kabupaten Lamongan <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 712|         <li><a href="#">Situs perangkat daerah <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a></li>
+ 713|       </ul>
+ 714|     </nav>
+ 715|   </div>
+ 716| 
+ 717|   <div class="container footer__bottom">
+ 718|     <p>Rumah Layanan · Pemerintah Kabupaten Lamongan</p>
+ 719|     <p class="footer__tag">Hadir di setiap tahap kehidupan.</p>
+ 720|   </div>
+ 721| </footer>
+ 722| 
+ 723| <script src="js/main.js"></script>
+ 724| </body>
+ 725| </html>
+ 726| 
